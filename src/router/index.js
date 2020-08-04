@@ -2,7 +2,7 @@
  * @ Author: Your name
  * @ Create Time: 2019-12-17 12:18:46
  * @ Modified by: Your name
- * @ Modified time: 2020-07-29 15:13:06
+ * @ Modified time: 2020-08-04 16:34:29
  * @ Description:
  */
 
@@ -105,6 +105,11 @@ const routes = [
     path: '/extension-dialog',
     name: 'extension-dialog',
     component: () => import('../views/extension-dialog/extension-dialog.vue')
+  },
+  {
+    path: '/custom-life-cycle',
+    name: 'custom-life-cycle',
+    component: () => import('../views/custom-life-cycle/custom-life-cycle.vue')
   },
 ]
 

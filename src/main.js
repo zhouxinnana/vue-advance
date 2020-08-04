@@ -8,7 +8,7 @@ import ElementUi from 'element-ui';
 import 'iview/dist/styles/iview.css'
 import 'element-ui/lib/theme-chalk/index.css';
 import Loading from '@/views/global-loading/loading';
-Vue.use(Loading)
+import { init, bind } from '@/utils/custom-life-cycle.js';
 Vue.use(ViewUI)
 Vue.use(ElementUi)
 
@@ -24,8 +24,10 @@ router.beforeResolve((to, from, next) => {
 router.afterEach( _ => {
   console.log("router.afterEach", 'router.afterEach')
 })
-new Vue({
+init()
+const vm = new Vue({
   router,
   store,
   render: h => h(App)
 }).$mount('#app')
+bind(vm)
