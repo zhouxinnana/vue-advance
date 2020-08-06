@@ -5,6 +5,10 @@
 </template>
 <script>
 export default {
+	// 自定义浏览器窗口变化的生命周期
+	resize(){
+		console.log("resize -> resizeresize")
+	},
 	pageVisible(){
     console.log("pageVisible -> pageVisible")
 	},

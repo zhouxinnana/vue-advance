@@ -4,7 +4,7 @@ import Vue from 'vue'
 const notifyVisibilityChange = (lifeCycleName, vm) => {
   // 生命周期函数会存在$options中，通过$options[lifeCycleName]获取生命周期
   const lifeCycles = vm.$options[lifeCycleName]
-  console.log("notifyVisibilityChange -> lifeCycles", lifeCycles)
+  // console.log("notifyVisibilityChange -> lifeCycles", lifeCycles)
   // 因为使用了created的合并策略，所以是一个数组
   if (lifeCycles && lifeCycles.length) {
     // 遍历 lifeCycleName对应的生命周期函数列表，依次执行
@@ -33,6 +33,7 @@ export function init() {
    */
   optionMergeStrategies.pageVisible = optionMergeStrategies.beforeCreate
   optionMergeStrategies.pageHidden = optionMergeStrategies.created
+  optionMergeStrategies.resize = optionMergeStrategies.created
 }
 
 /**
@@ -52,5 +53,9 @@ export function bind(rootVm) {
       // 通过所有组件生命周期发生变化了
       notifyVisibilityChange(lifeCycleName, rootVm)
     }
+  })
+  window.addEventListener('resize', () => {
+  console.log("bind -> resize")
+    notifyVisibilityChange('resize', rootVm)
   })
 }

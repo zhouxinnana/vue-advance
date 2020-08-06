@@ -2,7 +2,7 @@
  * @ Author: Your name
  * @ Create Time: 2019-12-17 12:18:46
  * @ Modified by: Your name
- * @ Modified time: 2020-08-04 16:34:29
+ * @ Modified time: 2020-08-05 14:29:29
  * @ Description:
  */
 
@@ -110,6 +110,16 @@ const routes = [
     path: '/custom-life-cycle',
     name: 'custom-life-cycle',
     component: () => import('../views/custom-life-cycle/custom-life-cycle.vue')
+  },
+  {
+    path: '/provide-inject',
+    name: 'provide-inject',
+    component: () => import('../views/provide-inject/provide-inject.vue')
+  },
+  {
+    path: '/jsx-demo',
+    name: 'jsx-demo',
+    component: () => import('../views/jsx-demo/jsx-demo.vue')
   },
 ]
 
