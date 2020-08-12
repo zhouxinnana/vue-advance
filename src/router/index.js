@@ -2,7 +2,7 @@
  * @ Author: Your name
  * @ Create Time: 2019-12-17 12:18:46
  * @ Modified by: Your name
- * @ Modified time: 2020-08-05 14:29:29
+ * @ Modified time: 2020-08-12 09:14:32
  * @ Description:
  */
 
@@ -120,6 +120,11 @@ const routes = [
     path: '/jsx-demo',
     name: 'jsx-demo',
     component: () => import('../views/jsx-demo/jsx-demo.vue')
+  },
+  {
+    path: '/text-decorator',
+    name: 'text-decorator',
+    component: () => import('../views/text-decorator/text-decorator.vue')
   },
 ]
 
