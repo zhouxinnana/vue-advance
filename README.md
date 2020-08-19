@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # vue-advance
 
 ## Project setup
@@ -23,6 +22,3 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-=======
-# vue-advance
->>>>>>> 3e85638367709469a1aef7559b52452a35b7fc69
