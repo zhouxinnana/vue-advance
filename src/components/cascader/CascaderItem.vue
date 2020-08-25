@@ -1,41 +1,38 @@
 <template>
   <div class="content">
     <div class="left-waper">
-      <div
-        class="cascader-item"
-        v-for="(item,index) in options"
-        :key="index"
-        @click="select(item)"
-      >{{item.label}}</div>
+      <div class="cascader-item" v-for="(item, index) in options" :key="index" @click="select(item)">
+        {{ item.label }}
+      </div>
     </div>
     <div class="right-waper" v-if="lists && lists.length">
       <!-- <div class="cascader-item" v-for="(item,index) in lists" :key="index" @click="select(item)">{{item.label}}</div> -->
-      <CascaderItem :options="lists" :level="level+1" @change="change" :value="value"></CascaderItem>
+      <cascader-item :options="lists" :level="level + 1" @change="change" :value="value"></cascader-item>
     </div>
   </div>
 </template>
 <script>
-import cloneDeep from "lodash/cloneDeep";
+import cloneDeep from "lodash/cloneDeep"
 export default {
   name: "CascaderItem",
   props: {
     level: {
-      type: Number
+      type: Number,
     },
     value: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     options: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
 
   data() {
     return {
-      currentSeected: null
-    };
+      currentSeected: null,
+    }
   },
 
   computed: {
@@ -45,28 +42,28 @@ export default {
       //   return o.children;
       // }
 
-       if(this.value[this.level] && this.value[this.level].id){
-        let o = this.options.find(item=>item.id === this.value[this.level].id);
-         return  o.children
-        }else{
-          return []
-        }
-    }
+      if (this.value[this.level] && this.value[this.level].id) {
+        let o = this.options.find((item) => item.id === this.value[this.level].id)
+        return o.children
+      } else {
+        return []
+      }
+    },
   },
 
   methods: {
     select(item) {
-      this.currentSeected = item;
-      let cloneValue = cloneDeep(this.value);
-      cloneValue[this.level] = item;
-      cloneValue.splice(this.level + 1);
-      this.$emit("change", cloneValue);
+      this.currentSeected = item
+      let cloneValue = cloneDeep(this.value)
+      cloneValue[this.level] = item
+      cloneValue.splice(this.level + 1)
+      this.$emit("change", cloneValue)
     },
     change(item) {
-      this.$emit("change", item);
-    }
-  }
-};
+      this.$emit("change", item)
+    },
+  },
+}
 </script>
 <style lang="less">
 .content {

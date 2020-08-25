@@ -13,49 +13,47 @@ export default {
           pid: -1,
           name: "购物车",
           id: 1,
-          auth: "cart"
+          auth: "cart",
         },
         {
           pid: 1,
           name: "购物车列表",
           id: 4,
-          auth: "cart-list"
+          auth: "cart-list",
         },
         {
           pid: 4,
           name: "彩票",
           id: 5,
-          auth: "lottery"
+          auth: "lottery",
         },
         {
           pid: 4,
           name: "商品",
           id: 6,
-          auth: "product"
-        }
-      ]
-    };
+          auth: "product",
+        },
+      ],
+    }
   },
-  computed:{
+  computed: {
     tree() {
-      let menu = [];
-      let menuList = {};
-      this.menuList.forEach(item => {
-        item.children = [];
+      let menu = []
+      let menuList = {}
+      this.menuList.forEach((item) => {
+        item.children = []
         menuList[item.id] = item
         if (item.pid === -1) {
-          menu.push(item);
-        }else{
-          if(menuList[item.pid] ){
+          menu.push(item)
+        } else {
+          if (menuList[item.pid]) {
             menuList[item.pid].children.push(item)
           }
         }
-      });
+      })
       return menu
-    }
+    },
   },
-  created() {
-  
-  }
-};
+  created() {},
+}
 </script>

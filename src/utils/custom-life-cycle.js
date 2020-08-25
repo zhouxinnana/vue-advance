@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import Vue from "vue"
 
 // 通知所有组件页面状态发生了变化
 const notifyVisibilityChange = (lifeCycleName, vm) => {
@@ -8,13 +8,13 @@ const notifyVisibilityChange = (lifeCycleName, vm) => {
   // 因为使用了created的合并策略，所以是一个数组
   if (lifeCycles && lifeCycles.length) {
     // 遍历 lifeCycleName对应的生命周期函数列表，依次执行
-    lifeCycles.forEach(lifecycle => {
+    lifeCycles.forEach((lifecycle) => {
       lifecycle.call(vm)
     })
   }
   // 遍历所有的子组件，然后依次递归执行
   if (vm.$children && vm.$children.length) {
-    vm.$children.forEach(child => {
+    vm.$children.forEach((child) => {
       notifyVisibilityChange(lifeCycleName, child)
     })
   }
@@ -41,21 +41,21 @@ export function init() {
  * @param {*} rootVm
  */
 export function bind(rootVm) {
-  window.addEventListener('visibilitychange', () => {
+  window.addEventListener("visibilitychange", () => {
     // 判断调用哪个生命周期函数
     let lifeCycleName = undefined
-    if (document.visibilityState === 'hidden') {
-      lifeCycleName = 'pageHidden'
-    } else if (document.visibilityState === 'visible') {
-      lifeCycleName = 'pageVisible'
+    if (document.visibilityState === "hidden") {
+      lifeCycleName = "pageHidden"
+    } else if (document.visibilityState === "visible") {
+      lifeCycleName = "pageVisible"
     }
     if (lifeCycleName) {
       // 通过所有组件生命周期发生变化了
       notifyVisibilityChange(lifeCycleName, rootVm)
     }
   })
-  window.addEventListener('resize', () => {
-  console.log("bind -> resize")
-    notifyVisibilityChange('resize', rootVm)
+  window.addEventListener("resize", () => {
+    console.log("bind -> resize")
+    notifyVisibilityChange("resize", rootVm)
   })
 }

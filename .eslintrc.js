@@ -1,9 +1,18 @@
+/* vscode 需要配置
+  {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "vetur.format.defaultFormatter.js": "prettier-eslint"
+  }
+*/
 module.exports = {
   root: true,
   env: {
     node: true,
   },
   extends: ['plugin:vue/essential', 'eslint:recommended', '@vue/prettier'],
+  // plugins: ['prettier'],
   parserOptions: {
     parser: 'babel-eslint',
     ecmaFeatures: {
@@ -13,29 +22,28 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    semi: ['error', 'never'],
+    // semi: ['error', 'never'],
     'prettier/prettier': [
       'error',
       {
         // 单个箭头函数不需要参数包裹
-        //   arrowParens: 'avoid',
+        // arrowParens: 'avoid',
         //在对象文本中在括号之间打印空格
-        //   bracketSpacing: true,
+        // bracketSpacing: true,
         // HTML空白的敏感性
-        //   htmlWhitespaceSensitivity: 'css',
+        // htmlWhitespaceSensitivity: 'css',
         // jsx语法的标签闭合（ >）是否在新一行
-        //   jsxBracketSameLine: false,
+        // jsxBracketSameLine: false,
         // 在JSX中使用单引号而不是双引号。
-        //   jsxSingleQuote: false,
+        // jsxSingleQuote: false,
         // 换行长度
-        //   printWidth: 80,
+        printWidth: 160,
         // 格式化特殊文件时候，按原文原样折行
-        //   proseWrap: 'preserve',
         //只在需要时在对象属性周围添加引号。
-        //   quoteProps: 'as-needed',
+        // quoteProps: 'as-needed',
         // 文件顶部不插入format特殊标记
-        //   insertPragma: false,
-        //   requirePragma: false,
+        // insertPragma: false,
+        // requirePragma: false,
         // 不使用分号
         semi: false,
         // 使用单引号
@@ -44,17 +52,28 @@ module.exports = {
         // 对象属性最后一位不需要逗号
         // trailingComma: 'none',
         // 取消用制表符代替空格
-        // useTabs: false
+        // useTabs: false,
       },
     ],
-    'vue/component-name-in-template-casing': [
-      'error',
-      'kebab-case',
-      {
-        registeredComponentsOnly: false,
-        ignores: [],
-      },
-    ],
+    // 'vue/component-name-in-template-casing': [
+    //   'error',
+    //   'kebab-case',
+    //   {
+    //     registeredComponentsOnly: false,
+    //     ignores: [],
+    //   },
+    // ],
+    // //     // 一行最多几个属性
+    // 'vue/max-attributes-per-line': [
+    //   'error',
+    //   {
+    //     singleline: 5,
+    //     multiline: {
+    //       max: 1,
+    //       allowFirstLine: false,
+    //     },
+    //   },
+    // ],
   },
 }
 
@@ -107,7 +126,7 @@ module.exports = {
 //     // 使用2个空格缩进
 //     indent: [
 //       'error',
-//       2,
+//       2,indent
 //       {
 //         SwitchCase: 1,
 //         flatTernaryExpressions: true

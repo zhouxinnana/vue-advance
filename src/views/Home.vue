@@ -1,34 +1,34 @@
 <template>
   <div class="home">
-    <img src="../assets/logo.png" alt="">
+    <img src="../assets/logo.png" alt />
     <div v-html="htmlFilter(htmlTag)"></div>
-    <router-link :to="{name:'directives'}">指令</router-link>
-    <Cascader :options.sync="options" v-model="value"  :lazyload="lazyload"></Cascader>
-    	{{ options }}
+    <router-link :to="{ name: 'directives' }">指令</router-link>
+    <cascader :options.sync="options" v-model="value" :lazyload="lazyload"></cascader>
+    {{ options }}
   </div>
 </template>
-<style lang="less">
-
-</style>
+<style lang="less"></style>
 
 <script>
-import Cascader from "@/components/cascader/Cascader.vue";
-import cityList from "@/data/data.json";
-let fetchRequest = (pid)=>{
-  return new Promise((resolve, reject)=>{
-      setTimeout(function(){
-         resolve(cityList.filter(el => el.pid == pid))
-      },500)
+import Cascader from "@/components/cascader/Cascader.vue"
+import cityList from "@/data/data.json"
+
+let fetchRequest = (pid) => {
+  // eslint-disable-next-line no-unused-vars
+  return new Promise((resolve) => {
+    setTimeout(function () {
+      resolve(cityList.filter((el) => el.pid == pid))
+    }, 500)
   })
 }
 export default {
-  async created(){
-    this.options   = await fetchRequest(0)
+  async created() {
+    this.options = await fetchRequest(0)
   },
   data() {
     return {
-      htmlTag:'<h2>我是标题2</h2><h2>我是标题2</h2>',
-      value:[],
+      htmlTag: "<h2>我是标题2</h2><h2>我是标题2</h2>",
+      value: [],
       options: [
         {
           value: "zhinan",
@@ -40,21 +40,21 @@ export default {
               children: [
                 {
                   value: "yizhi",
-                  label: "一致"
+                  label: "一致",
                 },
                 {
                   value: "fankui",
-                  label: "反馈"
+                  label: "反馈",
                 },
                 {
                   value: "xiaolv",
-                  label: "效率"
+                  label: "效率",
                 },
                 {
                   value: "kekong",
-                  label: "可控"
-                }
-              ]
+                  label: "可控",
+                },
+              ],
             },
             {
               value: "daohang",
@@ -62,15 +62,15 @@ export default {
               children: [
                 {
                   value: "cexiangdaohang",
-                  label: "侧向导航"
+                  label: "侧向导航",
                 },
                 {
                   value: "dingbudaohang",
-                  label: "顶部导航"
-                }
-              ]
-            }
-          ]
+                  label: "顶部导航",
+                },
+              ],
+            },
+          ],
         },
         {
           value: "zujian",
@@ -82,25 +82,25 @@ export default {
               children: [
                 {
                   value: "layout",
-                  label: "Layout 布局"
+                  label: "Layout 布局",
                 },
                 {
                   value: "color",
-                  label: "Color 色彩"
+                  label: "Color 色彩",
                 },
                 {
                   value: "typography",
-                  label: "Typography 字体"
+                  label: "Typography 字体",
                 },
                 {
                   value: "icon",
-                  label: "Icon 图标"
+                  label: "Icon 图标",
                 },
                 {
                   value: "button",
-                  label: "Button 按钮"
-                }
-              ]
+                  label: "Button 按钮",
+                },
+              ],
             },
             {
               value: "form",
@@ -108,61 +108,61 @@ export default {
               children: [
                 {
                   value: "radio",
-                  label: "Radio 单选框"
+                  label: "Radio 单选框",
                 },
                 {
                   value: "checkbox",
-                  label: "Checkbox 多选框"
+                  label: "Checkbox 多选框",
                 },
                 {
                   value: "input",
-                  label: "Input 输入框"
+                  label: "Input 输入框",
                 },
                 {
                   value: "input-number",
-                  label: "InputNumber 计数器"
+                  label: "InputNumber 计数器",
                 },
                 {
                   value: "select",
-                  label: "Select 选择器"
+                  label: "Select 选择器",
                 },
                 {
                   value: "cascader",
-                  label: "Cascader 级联选择器"
+                  label: "Cascader 级联选择器",
                 },
                 {
                   value: "switch",
-                  label: "Switch 开关"
+                  label: "Switch 开关",
                 },
                 {
                   value: "slider",
-                  label: "Slider 滑块"
+                  label: "Slider 滑块",
                 },
                 {
                   value: "time-picker",
-                  label: "TimePicker 时间选择器"
+                  label: "TimePicker 时间选择器",
                 },
                 {
                   value: "date-picker",
-                  label: "DatePicker 日期选择器"
+                  label: "DatePicker 日期选择器",
                 },
                 {
                   value: "datetime-picker",
-                  label: "DateTimePicker 日期时间选择器"
+                  label: "DateTimePicker 日期时间选择器",
                 },
                 {
                   value: "upload",
-                  label: "Upload 上传"
+                  label: "Upload 上传",
                 },
                 {
                   value: "rate",
-                  label: "Rate 评分"
+                  label: "Rate 评分",
                 },
                 {
                   value: "form",
-                  label: "Form 表单"
-                }
-              ]
+                  label: "Form 表单",
+                },
+              ],
             },
             {
               value: "data",
@@ -170,29 +170,29 @@ export default {
               children: [
                 {
                   value: "table",
-                  label: "Table 表格"
+                  label: "Table 表格",
                 },
                 {
                   value: "tag",
-                  label: "Tag 标签"
+                  label: "Tag 标签",
                 },
                 {
                   value: "progress",
-                  label: "Progress 进度条"
+                  label: "Progress 进度条",
                 },
                 {
                   value: "tree",
-                  label: "Tree 树形控件"
+                  label: "Tree 树形控件",
                 },
                 {
                   value: "pagination",
-                  label: "Pagination 分页"
+                  label: "Pagination 分页",
                 },
                 {
                   value: "badge",
-                  label: "Badge 标记"
-                }
-              ]
+                  label: "Badge 标记",
+                },
+              ],
             },
             {
               value: "notice",
@@ -200,25 +200,25 @@ export default {
               children: [
                 {
                   value: "alert",
-                  label: "Alert 警告"
+                  label: "Alert 警告",
                 },
                 {
                   value: "loading",
-                  label: "Loading 加载"
+                  label: "Loading 加载",
                 },
                 {
                   value: "message",
-                  label: "Message 消息提示"
+                  label: "Message 消息提示",
                 },
                 {
                   value: "message-box",
-                  label: "MessageBox 弹框"
+                  label: "MessageBox 弹框",
                 },
                 {
                   value: "notification",
-                  label: "Notification 通知"
-                }
-              ]
+                  label: "Notification 通知",
+                },
+              ],
             },
             {
               value: "navigation",
@@ -226,25 +226,25 @@ export default {
               children: [
                 {
                   value: "menu",
-                  label: "NavMenu 导航菜单"
+                  label: "NavMenu 导航菜单",
                 },
                 {
                   value: "tabs",
-                  label: "Tabs 标签页"
+                  label: "Tabs 标签页",
                 },
                 {
                   value: "breadcrumb",
-                  label: "Breadcrumb 面包屑"
+                  label: "Breadcrumb 面包屑",
                 },
                 {
                   value: "dropdown",
-                  label: "Dropdown 下拉菜单"
+                  label: "Dropdown 下拉菜单",
                 },
                 {
                   value: "steps",
-                  label: "Steps 步骤条"
-                }
-              ]
+                  label: "Steps 步骤条",
+                },
+              ],
             },
             {
               value: "others",
@@ -252,31 +252,31 @@ export default {
               children: [
                 {
                   value: "dialog",
-                  label: "Dialog 对话框"
+                  label: "Dialog 对话框",
                 },
                 {
                   value: "tooltip",
-                  label: "Tooltip 文字提示"
+                  label: "Tooltip 文字提示",
                 },
                 {
                   value: "popover",
-                  label: "Popover 弹出框"
+                  label: "Popover 弹出框",
                 },
                 {
                   value: "card",
-                  label: "Card 卡片"
+                  label: "Card 卡片",
                 },
                 {
                   value: "carousel",
-                  label: "Carousel 走马灯"
+                  label: "Carousel 走马灯",
                 },
                 {
                   value: "collapse",
-                  label: "Collapse 折叠面板"
-                }
-              ]
-            }
-          ]
+                  label: "Collapse 折叠面板",
+                },
+              ],
+            },
+          ],
         },
         {
           value: "ziyuan",
@@ -284,58 +284,54 @@ export default {
           children: [
             {
               value: "axure",
-              label: "Axure Components"
+              label: "Axure Components",
             },
             {
               value: "sketch",
-              label: "Sketch Templates"
+              label: "Sketch Templates",
             },
             {
               value: "jiaohu",
-              label: "组件交互文档"
-            }
-          ]
-        }
-      ]
-    };
-  },
-  components: {
-    Cascader
-  },
-  beforeRouteLeave(to,form,next){
-        console.log("beforeRouteLeave -> home beforeRouteLeave", 'beforeRouteLeave')
-		next()
-	},
-	beforeRouteUpdate(to, from, next){
-		 console.log("beforeRouteUpdate -> home beforeRouteUpdate", 'beforeRouteUpdate')
-		next()
-	},
-	beforeRouteEnter(to,form,next){
-		console.log("beforeRouteEnter -> home beforeRouteEnter", 'beforeRouteEnter')
-		next()
-	},
-  
-  methods:{
-  //  async input(value){
-  //     let currentValue = value[value.length - 1]
-  //     let children = await fetchRequest(currentValue.id)
-  //     this.$set(currentValue,'children', children)
-  //   },
-
-    async lazyload(id, callback){
-       let children = await fetchRequest(id)
-       callback(children)
-    },
-
-    htmlFilter(htmlString){
-     return htmlString.replace("\n","<br>")
+              label: "组件交互文档",
+            },
+          ],
+        },
+      ],
     }
   },
-  computed:{
-    
-  }
-};
-</script>
-<style lang="less">
+  components: {
+    Cascader,
+  },
+  beforeRouteLeave(to, form, next) {
+    console.log("beforeRouteLeave -> home beforeRouteLeave", "beforeRouteLeave")
+    next()
+  },
+  beforeRouteUpdate(to, from, next) {
+    console.log("beforeRouteUpdate -> home beforeRouteUpdate", "beforeRouteUpdate")
+    next()
+  },
+  beforeRouteEnter(to, form, next) {
+    console.log("beforeRouteEnter -> home beforeRouteEnter", "beforeRouteEnter")
+    next()
+  },
 
-</style>
+  methods: {
+    //  async input(value){
+    //     let currentValue = value[value.length - 1]
+    //     let children = await fetchRequest(currentValue.id)
+    //     this.$set(currentValue,'children', children)
+    //   },
+
+    async lazyload(id, callback) {
+      let children = await fetchRequest(id)
+      callback(children)
+    },
+
+    htmlFilter(htmlString) {
+      return htmlString.replace("\n", "<br>")
+    },
+  },
+  computed: {},
+}
+</script>
+<style lang="less"></style>
